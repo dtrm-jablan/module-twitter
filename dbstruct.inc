@@ -2,13 +2,12 @@
 /**
  * Twitter Integration Module
  *
+ * @var string $ModPath
  * @var array  $Module
  * @var string $mod
  * @var array  $appconf
  * @var array  $OverLoad
  */
-use Determine\Module\Twitter\Module;
-
 $Module[$mod]['menu'] = 1;
 $Module[$mod]['data'] = 1;
 $Module[$mod]['widget'] = 1;

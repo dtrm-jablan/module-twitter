@@ -10,23 +10,4 @@ class Module extends BaseModule
 
     /** @inheritdoc */
     const NAME = 'twitter';
-
-    //******************************************************************************
-    //* Methods
-    //******************************************************************************
-
-    /**
-     * Override to add our alias
-     *
-     * @return $this
-     */
-    public function withFacades()
-    {
-        if (!static::$aliasesRegistered) {
-            parent::withFacades();
-            class_alias('Thujohn\Twitter\Facades\Twitter', 'Twitter');
-        }
-
-        return $this;
-    }
 }

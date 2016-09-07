@@ -27,8 +27,9 @@ if (!function_exists('__twitter_bootstrap')) {
         $_app->singleton(Illuminate\Contracts\Debug\ExceptionHandler::class, Determine\Module\Twitter\Exceptions\Handler::class);
         $_app->singleton(Illuminate\Contracts\Console\Kernel::class, Determine\Module\Twitter\Console\Kernel::class);
 
-        //  Register our service
+        //  Register the service and facade
         $_app->register(\Thujohn\Twitter\TwitterServiceProvider::class);
+        class_alias('Thujohn\Twitter\Facades\Twitter', 'Twitter');
 
         //  Only need this for composer update
         if ('cli' === PHP_SAPI) {

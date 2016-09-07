@@ -4,10 +4,9 @@
  *
  * @var array  $Module
  * @var string $AppMenu
- * @var array  $appconf
- * @var array  $OverLoad
  */
-$_menu = (!empty($Module['twitter']['tab']) ? $Module['twitter']['tab'] : (!empty($AppMenu['setorga']) ? 'setorga' : 'maintenance'));
+
+$_menu = array_get($Module, 'twitter.tab', empty($AppMenu['setorga']) ? 'maintenance' : 'setorga');
 
 $AppMenu[$_menu]['collaborative'] = ['sep' => 1];
 $AppMenu[$_menu]['TWITTERID'] = ['rule' => 'settings', 'group' => 'list'];
