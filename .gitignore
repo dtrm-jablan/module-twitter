@@ -1,0 +1,8 @@
+.env
+vendor/
+/.idea/workspace.xml
+/og
+.phpstorm.meta.php
+/vendor
+/storage/logs/*
+/storage/logs/*.log

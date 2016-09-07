@@ -1,0 +1,50 @@
+{
+    "name":              "determine/module-twitter",
+    "type":              "determine-module",
+    "description":       "Twitter Integration Module",
+    "authors":           [
+        {
+            "name":  "Jerry Ablan",
+            "email": "jablan@determine.com"
+        }
+    ],
+    "keywords":          [
+        "twitter",
+        "determine",
+        "p2p",
+        "module"
+    ],
+    "license":           "proprietary",
+    "minimum-stability": "dev",
+    "repositories":      [
+        {
+            "type": "vcs",
+            "url":  "git@github.com:Determine-Corp/dtrm-util"
+        }
+    ],
+    "require":           {
+        "php":                          ">=5.5.9",
+        "vlucas/phpdotenv":             "~2.2",
+        "laravel/lumen-framework":      "5.2.*",
+        "chaoticwave/blue-velvet":      "1.0.*",
+        "determine/dtrm-util":          "1.0.*",
+        "determine/composer-installer": "*",
+        "thujohn/twitter":              "~2.0",
+        "barryvdh/laravel-ide-helper":  "^2.2"
+    },
+    "require-dev":       {
+        "fzaninotto/faker": "~1.4",
+        "phpunit/phpunit":  "~4.0"
+    },
+    "autoload":          {
+        "psr-4": {
+            "Determine\\Module\\Twitter\\":        "app/",
+            "Determine\\Module\\Twitter\\Tests\\": "tests/"
+        }
+    },
+    "autoload-dev":      {
+        "classmap": [
+            "tests/"
+        ]
+    }
+}

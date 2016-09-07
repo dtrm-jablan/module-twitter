@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+use Illuminate\Contracts\Console\Kernel;
+use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Console\Output\ConsoleOutput;
+
+$__app = require __DIR__ . '/bootstrap/app.php';
+
+/** @var Kernel $__kernel */
+$__kernel = $__app->make('Illuminate\Contracts\Console\Kernel');
+exit($__kernel->handle(new ArgvInput(), new ConsoleOutput()));
