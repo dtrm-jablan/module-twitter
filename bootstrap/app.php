@@ -22,14 +22,16 @@ if (!function_exists('__twitter_bootstrap')) {
         $_de = ini_get('display_errors');
 
         $_app = new \Determine\Module\Twitter\Module(realpath(__DIR__ . '/../'));
-        $_app->withEloquent()->withFacades();
+        $_app->withEloquent();
+        $_app->withFacades();
+
+        class_alias('Thujohn\Twitter\Facades\Twitter', 'Twitter');
 
         $_app->singleton(Illuminate\Contracts\Debug\ExceptionHandler::class, Determine\Module\Twitter\Exceptions\Handler::class);
         $_app->singleton(Illuminate\Contracts\Console\Kernel::class, Determine\Module\Twitter\Console\Kernel::class);
 
         //  Register the service and facade
         $_app->register(\Thujohn\Twitter\TwitterServiceProvider::class);
-        class_alias('Thujohn\Twitter\Facades\Twitter', 'Twitter');
 
         //  Only need this for composer update
         if ('cli' === PHP_SAPI) {
