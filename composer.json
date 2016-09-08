@@ -27,14 +27,14 @@
         "vlucas/phpdotenv":             "~2.2",
         "laravel/lumen-framework":      "5.2.*",
         "chaoticwave/blue-velvet":      "1.0.*",
+        "chaoticwave/twister":          "dev-develop as dev-master",
         "determine/dtrm-util":          "1.0.*",
-        "determine/composer-installer": "*",
-        "thujohn/twitter":              "~2.0",
-        "barryvdh/laravel-ide-helper":  "^2.2"
+        "determine/composer-installer": "*"
     },
     "require-dev":       {
-        "fzaninotto/faker": "~1.4",
-        "phpunit/phpunit":  "~4.0"
+        "barryvdh/laravel-ide-helper": "^2.2",
+        "fzaninotto/faker":            "~1.4",
+        "phpunit/phpunit":             "~4.0"
     },
     "autoload":          {
         "psr-4": {
