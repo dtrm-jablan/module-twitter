@@ -30,7 +30,9 @@ if (!function_exists('__twitter_bootstrap')) {
         $_app->singleton(Illuminate\Contracts\Console\Kernel::class, Determine\Module\Twitter\Console\Kernel::class);
 
         //  Register the service and facade
-        $_app->register(TwisterServiceProvider::class);
+        if (PHP_SESSION_ACTIVE === session_status()) {
+            $_app->register(TwisterServiceProvider::class);
+        }
 
         //  Only need this for composer update
         if ('cli' === PHP_SAPI) {
