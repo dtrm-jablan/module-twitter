@@ -3,6 +3,7 @@
  * Twitter Integration Module
  */
 
+use Illuminate\Support\Facades\Log;
 use Thujohn\Twitter\Facades\Twitter;
 
 /**
