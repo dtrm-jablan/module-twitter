@@ -7,15 +7,14 @@
 //* Bootstrap logic
 //******************************************************************************
 
-use ChaoticWave\Twister\Providers\TwisterServiceProvider;
-
 if (!function_exists('__twitter_bootstrap')) {
     /** @return \Determine\Module\Twitter\Module */
     function __twitter_bootstrap()
     {
         //  Load the environment configuration
         try {
-            (new \Dotenv\Dotenv(__DIR__ . '/../'))->load();
+            $_de = new \Dotenv\Dotenv(__DIR__ . '/../');
+            $_de->load();
         } catch (\Dotenv\Exception\InvalidPathException $_ex) {
         }
 
@@ -30,9 +29,7 @@ if (!function_exists('__twitter_bootstrap')) {
         $_app->singleton(Illuminate\Contracts\Console\Kernel::class, Determine\Module\Twitter\Console\Kernel::class);
 
         //  Register the service and facade
-        if (PHP_SESSION_ACTIVE === session_status()) {
-            $_app->register(TwisterServiceProvider::class);
-        }
+        $_app->register(ChaoticWave\Twister\Providers\TwisterServiceProvider::class);
 
         //  Only need this for composer update
         if ('cli' === PHP_SAPI) {
@@ -64,14 +61,14 @@ if (!function_exists('__twitter_bootstrap')) {
 
 //  Bootstrap the autoloader if we are stand-alone
 if (!isset($GLOBALS['__composer_autoload_files'])) {
-    if (!function_exists('__bootstrap_autoload')) {
+    if (!function_exists('__twitter_bootstrap_autoload')) {
         /**
          * Bootstrap composer autoloader
          *
          * @return bool|mixed
          * @todo This is for TESTING only. Inclusion of /vendor/autoload.php needs to be located in the front-controller or index.php, and well-known.
          */
-        function __bootstrap_autoload()
+        function __twitter_bootstrap_autoload()
         {
             static $_location = null;
 
@@ -142,11 +139,16 @@ if (!isset($GLOBALS['__composer_autoload_files'])) {
         }
     }
 
-    __bootstrap_autoload();
+    __twitter_bootstrap_autoload();
 }
 
 //******************************************************************************
 //* Bootstrap module
 //******************************************************************************
 
-return __twitter_bootstrap();
+/** Don't load unless we have a session */
+if (PHP_SESSION_ACTIVE === session_status()) {
+    return __twitter_bootstrap();
+}
+
+return true;
