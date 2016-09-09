@@ -147,7 +147,7 @@ if (!isset($GLOBALS['__composer_autoload_files'])) {
 //******************************************************************************
 
 /** Don't load unless we have a session */
-if (PHP_SESSION_ACTIVE === session_status()) {
+if ('cli' === PHP_SAPI || PHP_SESSION_ACTIVE === session_status()) {
     return __twitter_bootstrap();
 }
 

@@ -9,4 +9,5 @@ $pageDefaultConf['col2'][] = [
     'styles' => 'quicklink',
     'band'   => 'widget-listContainer',
     'icon'   => 'fa-twitter',
+    'sort'   => 50,
 ];
