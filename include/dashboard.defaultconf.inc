@@ -4,10 +4,9 @@
  *
  * @var array $pageDefaultConf
  */
-$pageDefaultConf['col1'][] = [
-    'sort'   => 20,
+$pageDefaultConf['col2'][] = [
     'widget' => 'twitter_primary',
-    'styles' => 'todo',
-    'band'   => 'widget-list',
-    'icon'   => 'font-twitter',
+    'styles' => 'quicklink',
+    'band'   => 'widget-listContainer',
+    'icon'   => 'fa-twitter',
 ];
