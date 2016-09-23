@@ -5,6 +5,7 @@
 //******************************************************************************
 //* Callbacks
 //******************************************************************************
+use ChaoticWave\Twister\Facades\Twister;
 
 /**
  * @param string     $widgetName
@@ -15,9 +16,14 @@
 function __twitter_widget_feed($widgetName, $context = null)
 {
     $_html = null;
+    $_params = ['count' => 3];
+
+    if (null !== ($_user = config('twister.user'))) {
+        $_params['screen_name'] = $_user;
+    }
 
     try {
-        $_response = \ChaoticWave\Twister\Facades\Twister::getUserTimeline(3);
+        $_response = Twister::getUserTimeline($_params);
 
         foreach ($_response as $_tweet) {
             $_tweet->direct_link = 'https://twitter.com/' . config('twister.user') . '/status/' . $_tweet->id_str;
